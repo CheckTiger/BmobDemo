@@ -18,6 +18,7 @@ import cn.bmob.sdkdemo.BaseActivity;
 import cn.bmob.sdkdemo.R;
 import cn.bmob.sdkdemo.bean.BankCard;
 import cn.bmob.sdkdemo.bean.Person;
+import cn.bmob.sdkdemo.bean.Snow;
 import cn.bmob.v3.datatype.BmobDate;
 import cn.bmob.v3.datatype.BmobGeoPoint;
 import cn.bmob.v3.exception.BmobException;
@@ -72,10 +73,11 @@ public class CRUDActivity extends BaseActivity {
 	 * 插入对象
 	 */
 	private void testinsertObject() {
-		final Person p2 = new Person();
+//		final Person p2 = new Person();
+		final Snow p2 = new Snow();
 		p2.setName("lucky");
 		p2.setAddress("北京市海淀区");
-		p2.setAge(25);
+		p2.setAge("25");
 		//添加Object类型
 		p2.setBankCard(new BankCard("哈哈", "111"));
 		//添加Object类型的数组
@@ -88,7 +90,7 @@ public class CRUDActivity extends BaseActivity {
 		p2.addAll("hobby", Arrays.asList("游泳", "看书"));    // 一次添加多个值到hobby字段中
 //		p2.add("cards",new BankCard("建行", "111"));//一次添加单个值
 		p2.setGpsAdd(new BmobGeoPoint(112.934755, 24.52065));
-		p2.setUploadTime(new BmobDate(new Date()));
+//		p2.setUploadTime(new BmobDate(new Date()));
 		p2.save(new SaveListener<String>() {
 
 			@Override
@@ -100,7 +102,7 @@ public class CRUDActivity extends BaseActivity {
 					Log.d("bmob", "name =" + p2.getName());
 					Log.d("bmob", "age =" + p2.getAge());
 					Log.d("bmob", "address =" + p2.getAddress());
-					Log.d("bmob", "gender =" + p2.isGender());
+//					Log.d("bmob", "gender =" + p2.isGender());
 					Log.d("bmob", "createAt = " + p2.getCreatedAt());
 				}else{
 					loge(e);

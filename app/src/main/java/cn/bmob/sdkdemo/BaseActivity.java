@@ -65,8 +65,8 @@ public class BaseActivity extends Activity {
 	}
 	
 	public static void log(String msg) {
-		Log.i(TAG,"===============================================================================");
-		Log.i(TAG, msg);
+		Log.e(TAG,"===============================================================================");
+		Log.e(TAG, msg);
 	}
 
 	public static void loge(Throwable e) {

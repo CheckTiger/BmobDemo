@@ -10,6 +10,7 @@ import android.widget.ListView;
 import cn.bmob.sdkdemo.BaseActivity;
 import cn.bmob.sdkdemo.R;
 import cn.bmob.sdkdemo.bean.Person;
+import cn.bmob.sdkdemo.bean.Snow;
 import cn.bmob.v3.BmobACL;
 import cn.bmob.v3.BmobRole;
 import cn.bmob.v3.BmobUser;
@@ -43,7 +44,8 @@ public class ACLActivity extends BaseActivity {
 		switch (pos) {
 			case 1:
 				// 创建数据时添加ACL
-				createACLData();
+//				createACLData();
+				createSnowData();
 				break;
 			case 2:
 				// 创建角色
@@ -62,6 +64,21 @@ public class ACLActivity extends BaseActivity {
 		}
 	}
 
+	private void createSnowData(){
+		Snow snow = new Snow();
+		snow.setName("snow");
+		snow.setAddress("北京朝阳区十八里店自主城");
+		snow.save(new SaveListener<String>() {
+			@Override
+			public void done(String s, BmobException e) {
+				if (e == null) {
+					toast("添加数据成功---->>>>>" + s);
+				} else {
+					toast("添加数据失败---->>>>>" + e.getMessage());
+				}
+			}
+		});
+	}
 	/**
 	 * 创建数据时添加ACL
 	 */
@@ -120,7 +137,7 @@ public class ACLActivity extends BaseActivity {
 	 */
 	private void updateRole() {
 		BmobRole role = new BmobRole("hr");
-		role.setObjectId("6f35f87f3a");
+		role.setObjectId("3da22d0d47");
 		role.getUsers().add(BmobUser.getCurrentUser());
 		role.update(new UpdateListener() {
 
